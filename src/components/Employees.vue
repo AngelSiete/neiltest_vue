@@ -14,7 +14,7 @@
             </tr>
             </thead>
             <tbody>
-              <tr v-for="employee in employees.data" :key="employee.id">
+              <tr v-for="employee in employees.parsedData" :key="employee.id">
                   <td>{{ employee.id }}</td>
                   <td>{{ employee.name }}</td>
                   <td>{{ employee.surname }}</td>

@@ -30,13 +30,13 @@
                       </div>
                       <div class="form-group col-md-6">
                           <label htmlFor="exampleInputPassword1">Phone</label>
-                          <input type="text" class="form-control" v-model="phone" name="surname" id="phone" placeholder="Phone" />
+                          <input type="text" class="form-control" v-model="phone" name="surname" id="phone" placeholder="XXX-XXX-XXX" />
                       </div>
                   </div>
                   <div class="row mb-4">
                       <div class="form-group col-md-12">
                           <label htmlFor="exampleInputEmail1">Birthday</label>
-                          <input type="text" class="form-control" v-model="date" name="date" id="date" aria-describedby="emailHelp" placeholder="Date" />
+                          <input type="text" class="form-control" v-model="birthday" name="birthday" id="birthday" aria-describedby="emailHelp" placeholder="DD/MM/YYYY" />
                       </div>
                   </div>
               </form>
@@ -48,36 +48,42 @@
   </template>
   
   <script>
+  import Employees from './Employees.vue'
   export default {
     name: 'CreateEmployee',
     data() {
       return {
+        id: '',
         name: '',
         surname: '',
         email: '',
         address: '',
         phone: '',
-        date: ''
+        birthday: ''
       }
     },
     methods: {
         createEmployee() {
-            console.log(this.name)
             const payload = {
+                id: 36,
+                // Employees.length++,
                 name: this.name,
                 surname: this.surname,
                 email: this.email,
                 address : this.address,
                 phone : this.phone,
-                date : this.date,
+                birthday : this.birthday,
             }
             this.$emit('createEmployee', payload)
             this.clearForm();
         },
         clearForm() {
             this.name = "";
-            this.lastName = "";
+            this.surname = "";
             this.email = "";
+            this.address = "";
+            this.phone = "";
+            this.birthday = "";
         }
     }
   }
